@@ -37,7 +37,7 @@ module XboxApi
     # [:messages, :recent_players].each do |action|
     #   define_method(action) do
     #     endpoint = __method__.to_s.gsub("_", "-")
-    #     client.fetch_body_and_parse( endpoint )      
+    #     client.fetch_body_and_parse( endpoint )
     #   end
     # end
 
@@ -47,7 +47,7 @@ module XboxApi
       attr_reader :client
 
       def fetch_xuid
-        endpoint = "xuid/#{URI.encode(gamertag)}"
+        endpoint = "xuid/#{URI.encode_www_form_component(gamertag)}"
         client.fetch_body_and_parse(endpoint)
       end
   end
